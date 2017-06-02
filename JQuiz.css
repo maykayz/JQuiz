@@ -1,0 +1,81 @@
+body{
+  /*background-color:#232323;*/
+  background-image:url("bg1.jpg");
+  background-size:cover;
+  background-attachment: fixed;
+  background-position:center;
+  background-blend-mode:overlay;
+  margin:0;
+
+}
+/*.bgOpacity{
+  background-color: rgba(0,0,0,0.2);
+  width:100%;
+  height:cover;
+  margin:0;
+}*/
+h1{
+  color:#484849;
+  text-align: center;
+}
+.container{
+  max-width:600px;
+  margin:0 auto;
+}
+/*.containerBox{
+  margin:0 auto;
+  width:50%;
+  background-color:#F4F4F5;
+}*/
+#questionBox{
+  width:30%;
+  background-color:#F7CDE0;
+  margin:0 auto;
+  border-radius:15%;
+  box-shadow: 2px 2px 5px #A08C9B;
+}
+.boxContainer{
+  margin:0 auto;
+  width:100%;
+  min-height:200px;
+}
+.characterBoxes{
+float:left;
+  width:30%;
+  background-color:#BDE6EB;
+  margin:1.33%;
+  border-radius:15%;
+  box-shadow: 2px 2px 5px #6D8487;
+}
+.characters{
+  color:white;
+  font-size:50px;
+  font-weight: 700;
+  text-align: center;
+  padding:25px auto;
+  line-height:150px;
+  text-shadow: 0px 2px 2px rgba(0,0,0,0.4),
+            0px 1px 1px rgba(0,0,0,0.2),
+            0px 1px 1px rgba(0,0,0,0.2);
+}
+
+.characterBoxes:hover{
+  background-color:#AB7F54;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+            0px 8px 13px rgba(0,0,0,0.2),
+            0px 18px 23px rgba(0,0,0,0.2);
+}
+.wrong{
+  background-color:#AB2754;
+}
+#status{
+  width:100%;
+  color:#484849;
+  height:100px;
+  line-height:100px;
+  text-shadow: 0px 2px 2px rgba(0,0,0,0.4),
+            0px 1px 1px rgba(0,0,0,0.2),
+            0px 1px 1px rgba(0,0,0,0.2);
+  border:1px solid #B9B9BD;
+  background-color:rgba(237,237,237,0.8);
+}
