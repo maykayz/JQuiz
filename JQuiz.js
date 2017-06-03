@@ -38,7 +38,7 @@ function reset(){
     characterArray = []; // to get characters according to mode. hiragana only for example.
     isOver = false;
     //remove characterBoxes event listener
-    removeCharacterBoxesEventListener();
+    // removeCharacterBoxesEventListener();
   // set characterList
     setupCharacterList();
   // get characterArray
@@ -64,9 +64,8 @@ function newGame(){
 }
 function characterBoxesEventListener(){
   for(var i=0;i<characterBoxes.length;i++){
-      characterBoxes[i].addEventListener("click",function(){
+      characterBoxes[i].addEventListener("click",function _func(){
         clickedCharacter = this.textContent;
-
         //Check answer
           if(isCorrect()){
             gameStatus.textContent = "Which one is correct?";
@@ -77,25 +76,17 @@ function characterBoxesEventListener(){
             gameStatus.textContent = "Nope..!";
           }
           gameStatus.textContent = "Which one is correct?";
+
+          this.removeEventListener('click', arguments.callee, false);
       });
   }
 }
 
 function removeCharacterBoxesEventListener(){
   for(var i=0;i<characterBoxes.length;i++){
-      characterBoxes[i].removeEventListener("click",function(){
-        clickedCharacter = this.textContent;
-        //Check answer
-          if(isCorrect()){
-            gameStatus.textContent = "Which one is correct?";
-            newGame();
-            score++;
-
-          }else{
-            gameStatus.textContent = "Nope..!";
-          }
-          gameStatus.textContent = "Which one is correct?";
-      });
+      characterBoxes[i].removeEventListener();
+      console.log("remove");
+      characterBoxes[i].onclick;
   }
 }
 function modeBtnEventListener(){
