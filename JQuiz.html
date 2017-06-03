@@ -6,15 +6,24 @@
     <link rel="stylesheet" href="JQuiz.css">
   </head>
   <body>
+    <div id="navbar">
+      <div class="btnBlock">
+        <button id="modeBtn" class="btn">Hiragana</button>
+        <!-- <button id="katakanaBtn" class="btn">Katakana</button> -->
+      </div>
+      <h1 id="navbarHeading">Question No: <span id="questionNoDisplay">1</span>/<span id="totalQuestionNoDisplay">20</span></h1>
+      <div id="score">
 
+      </div>
+    </div>
       <div class="container">
-        <h1>Question No: <span id="questionNoDisplay">1</span>/<span id="totalQuestionNoDisplay">20</span></h1>
+
         <div class="characters" id="questionBox">
           <!-- <h1 class="characters" id="questionCharacter"></h1> -->
         </div>
 
       <!-- <hr width="100%"> -->
-      <h1 width="100%" id="status">Choose the correct answer</h1>
+      <h1 width="100%" id="status">Which one is correct?</h1>
       <!-- <hr width="100%"> -->
 
           <div class="characterBoxes characters">

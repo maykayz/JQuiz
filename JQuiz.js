@@ -1,18 +1,17 @@
-var questionBox = document.querySelector("#questionBox"); //Display queston "KO"
-// var characterChoices = document.querySelectorAll(".characterChoices"); // Display choices
-var characterBoxes = document.querySelectorAll(".characterBoxes"); // Boxes to click
-var questionNoDisplay = document.querySelector("#questionNoDisplay"); //1 in 1/20
-var totalQuestionNoDisplay = document.querySelector("#totalQuestionNoDisplay"); //20 in 1/20
+var questionBox = document.querySelector("#questionBox");
+var characterBoxes = document.querySelectorAll(".characterBoxes");
+var questionNoDisplay = document.querySelector("#questionNoDisplay");
+var totalQuestionNoDisplay = document.querySelector("#totalQuestionNoDisplay");
 var nextBtn = document.querySelector("#nextBtn");
 var gameStatus = document.querySelector("#status");
+var modeBtn = document.querySelector("#modeBtn");
+var characterMode = "";
 
-var mode = ""; // to choose hiragana or katakana or romaji
-
-var pickedCharacterRomaji = ""; //to show in romaji
+var pickedCharacterRomaji = "";
 var pickedCharacterSameForm = "";
 var clickedCharacter = "";
 var randomCharactersArray = [];
-var characterList = [];
+var characterList = []; // an object array stored all characters, hiragana, katakana and romaji with group.
 var characterArray = []; // to get characters according to mode. hiragana only for example.
 var isOver = false;
 var score = 0;
@@ -23,11 +22,14 @@ init();
 function init(){
   score = 0;
   totalGame = 1;
+  // get mode, default (hiragana)
+  characterMode = "hiragana";
+  // set event listener to modeBtn
+  modeBtnEventListener();
   reset();
 }
 function reset(){
-
-    mode = ""; // to choose hiragana or katakana or romaji
+    // gameStatus.textContent = "Which one is correct?";
     pickedCharacterRomaji = ""; //to show in romaji
     pickedCharacterSameForm = "";
     clickedCharacter = "";
@@ -35,8 +37,7 @@ function reset(){
     characterList = [];
     characterArray = []; // to get characters according to mode. hiragana only for example.
     isOver = false;
-  // get mode, default (hiragana)
-    mode = "hiragana";
+
   // set characterList
     setupCharacterList();
   // get characterArray
@@ -45,16 +46,18 @@ function reset(){
     newQuestion();
   //add event listener to characterBoxes
     characterBoxesEventListener();
-
   //Keep Score
 }
 function newGame(){
-  gameStatus.textContent = "Choose the correct answer";
+  // gameStatus.textContent = "Which one is correct?";
   totalGame++;
   if(totalGame<=20){
     reset();
     questionNoDisplay.textContent = totalGame;
     totalQuestionNoDisplay.textContent = "20";
+    if(totalGame === 20){
+      gameStatus.textContent = "You nailed it!";
+    }
   }
 }
 function characterBoxesEventListener(){
@@ -64,13 +67,29 @@ function characterBoxesEventListener(){
 
         //Check answer
           if(isCorrect()){
+            gameStatus.textContent = "Which one is correct?";
             newGame();
             score++;
+
           }else{
-            gameStatus.textContent = "Try Again!";
+            gameStatus.textContent = "Nope..!";
           }
+          gameStatus.textContent = "Which one is correct?";
       });
   }
+}
+function modeBtnEventListener(){
+  modeBtn.addEventListener("click",function(){
+    console.log(this.textContent);
+    if(this.textContent === "Hiragana"){
+      this.textContent = "Katakana";
+      characterMode = "katakana";
+    }else{
+      this.textContent = "Hiragana";
+      characterMode = "hiragana";
+    }
+    reset();
+  });
 }
 function setupCharacters(){
   for(var i=0;i<randomCharactersArray.length;i++){
@@ -86,11 +105,11 @@ function isCorrect(){
 }
 function getCharacterArray(){
   for(var i=0;i<characterList.length;i++){
-    if(mode === "hiragana"){
+    if(characterMode === "hiragana"){
       characterArray[i] = characterList[i].hiragana;}
-    // else if (mode === "katagana"){
-    //   characterArray[i] = characterList[i].katakana;
-    // }
+    else{
+      characterArray[i] = characterList[i].katakana;
+    }
   }
 }
 function getRandomCharactersArray(){
@@ -112,9 +131,6 @@ function newQuestion(){
   // setup randomCharacterArray to characterBoxes
     setupCharacters();
 }
-
-
-
 
 function setupCharacterList(){
   characterList = [
