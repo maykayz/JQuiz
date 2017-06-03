@@ -6,7 +6,6 @@ body{
   background-position:center;
   background-blend-mode:overlay;
   margin:0;
-
 }
 h1{
   margin:0;
@@ -94,9 +93,9 @@ float:left;
             0px 1px 1px rgba(0,0,0,0.2);
 }
 
-/*.characterBoxes:hover{
+.characterBoxes:hover{
   background-color:#484849;
-}*/
+}
 .wrong{
   background-color:#AB2754;
 }
@@ -106,9 +105,6 @@ float:left;
   color:#484849;
   height:100px;
   line-height:100px;
-/*  text-shadow: 0px 2px 2px rgba(0,0,0,0.4),
-            0px 1px 1px rgba(0,0,0,0.2),
-            0px 1px 1px rgba(0,0,0,0.2);*/
   border:1px solid #B9B9BD;
   background-color:rgba(237,237,237,0.8);
 }

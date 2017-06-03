@@ -11,7 +11,7 @@ var pickedCharacterRomaji = "";
 var pickedCharacterSameForm = "";
 var clickedCharacter = "";
 var randomCharactersArray = [];
-var characterList = []; // an object array stored all characters, hiragana, katakana and romaji with group.
+var characterList = []; // an object array stored all characters
 var characterArray = []; // to get characters according to mode. hiragana only for example.
 var isOver = false;
 var score = 0;
@@ -37,8 +37,6 @@ function reset(){
     characterList = [];
     characterArray = []; // to get characters according to mode. hiragana only for example.
     isOver = false;
-    //remove characterBoxes event listener
-    // removeCharacterBoxesEventListener();
   // set characterList
     setupCharacterList();
   // get characterArray
@@ -71,18 +69,11 @@ function characterBoxesEventListener(){
             gameStatus.textContent = "Which one is correct?";
             newGame();
             score++;
-
           }else{
             gameStatus.textContent = "Nope..!";
           }
           gameStatus.textContent = "Which one is correct?";
       });
-  }
-}
-
-function removeCharacterBoxesEventListener(){
-  for(var i=0;i<characterBoxes.length;i++){
-      characterBoxes[i].removeEventListener('click', arguments.callee, false);
   }
 }
 function modeBtnEventListener(){
