@@ -45,14 +45,16 @@ function reset(){
   // call newGame
     newQuestion();
   //add event listener to characterBoxes
-    characterBoxesEventListener();
-  //Keep Score
+  characterBoxesEventListener();
+//Keep Score
 }
 function newGame(){
   // gameStatus.textContent = "Which one is correct?";
   totalGame++;
   if(totalGame<=20){
     reset();
+    //add event listener to characterBoxes
+    characterBoxesEventListener();
     questionNoDisplay.textContent = totalGame;
     totalQuestionNoDisplay.textContent = "20";
     if(totalGame === 20){
