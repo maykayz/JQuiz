@@ -76,17 +76,13 @@ function characterBoxesEventListener(){
             gameStatus.textContent = "Nope..!";
           }
           gameStatus.textContent = "Which one is correct?";
-
-          this.removeEventListener('click', arguments.callee, false);
       });
   }
 }
 
 function removeCharacterBoxesEventListener(){
   for(var i=0;i<characterBoxes.length;i++){
-      characterBoxes[i].removeEventListener();
-      console.log("remove");
-      characterBoxes[i].onclick;
+      characterBoxes[i].removeEventListener('click', arguments.callee, false);
   }
 }
 function modeBtnEventListener(){

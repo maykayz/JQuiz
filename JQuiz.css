@@ -94,9 +94,9 @@ float:left;
             0px 1px 1px rgba(0,0,0,0.2);
 }
 
-.characterBoxes:hover{
+/*.characterBoxes:hover{
   background-color:#484849;
-}
+}*/
 .wrong{
   background-color:#AB2754;
 }
